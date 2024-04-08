@@ -94,6 +94,8 @@ void main() {
           // This is actually the default value.
           gradientViewModel.changeGradientStyle(GradientStyle.linear);
           const initialDirection = GradientDirectionCustom(
+            // Starts the pointer at 1/4 of the width and centered vertically.
+            // When working with Alignment, (0.0, 0.0) means center.
             alignment: Alignment(-0.5, 0),
           );
           gradientViewModel.changeGradientDirection(initialDirection);
@@ -107,6 +109,7 @@ void main() {
           );
           final firstPicker = find.byIcon(Icons.add_circle_outline_sharp).first;
 
+          // Drag down. 200 is just a big number to drag down as much as possible.
           await tester.drag(firstPicker, const Offset(0, 200));
           await tester.pumpAndSettle();
 
@@ -115,6 +118,8 @@ void main() {
 
           expect(
             customDirection.alignment,
+            // Since we dragged down until the bottom of the container and
+            // there was no X movement, the endAlignment should be (-0.5, 1.0).
             equals(const Alignment(-0.5, 1.0)),
           );
           // Should not change the end alignment.
@@ -130,6 +135,8 @@ void main() {
           // This is actually the default value.
           gradientViewModel.changeGradientStyle(GradientStyle.linear);
           const initialDirection = GradientDirectionCustom(
+            // Starts the pointer at 1/4 of the width and centered vertically.
+            // When working with Alignment, (0.0, 0.0) means center.
             endAlignment: Alignment(0.5, 0),
           );
           gradientViewModel.changeGradientDirection(initialDirection);
@@ -143,6 +150,7 @@ void main() {
           );
           final secondPicker = find.byIcon(Icons.add_circle_outline_sharp).last;
 
+          // Drag down. 200 is just a big number to drag down as much as possible.
           await tester.drag(secondPicker, const Offset(0, 200));
           await tester.pumpAndSettle();
 
@@ -151,6 +159,8 @@ void main() {
 
           expect(
             customDirection.endAlignment,
+            // Since we dragged down until the bottom of the container and
+            // there was no X movement, the endAlignment should be (0.5, 1.0).
             equals(const Alignment(0.5, 1.0)),
           );
           // Should not change the alignment.

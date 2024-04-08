@@ -272,6 +272,8 @@ class _AlignmentDimensionInputState extends State<_AlignmentDimensionInput> {
       onTapOutside: (_) {},
       onSubmitted: (_) => {},
       inputFormatters: [
+        /// Allow positive and negative decimal numbers
+        /// Example: -0.5, 0.5, 0, -0, .5, -.5
         FilteringTextInputFormatter.allow(RegExp(r'^-?\d*\.?\d*')),
       ],
     );

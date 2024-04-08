@@ -7,7 +7,7 @@ void main() {
   group('GradientViewModel', () {
     late GradientViewModel gradientViewModel;
 
-    group('GradientDirectionCustom', () {
+    group('changeGradientDirection - GradientDirectionCustom', () {
       late GradientDirection initialDirection;
 
       setUp(() {

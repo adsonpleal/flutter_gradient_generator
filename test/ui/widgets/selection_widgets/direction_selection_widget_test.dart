@@ -16,7 +16,7 @@ void main() {
       });
 
       testWidgets(
-        'should change direction to custom os custom tap and show text fields',
+        'should change direction to custom on custom tap and show text fields',
         (tester) async {
           await tester.pumpWidget(
             MaterialApp(
